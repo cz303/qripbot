@@ -6,7 +6,6 @@ import random
 import sqlite3
 import threading
 import time
-import StringIO
 import requests
 from captcha.image import ImageCaptcha
 from telebot import types
