@@ -5,7 +5,6 @@ import string
 import random
 import sqlite3
 import threading
-import Queue
 import time
 import StringIO
 import requests
