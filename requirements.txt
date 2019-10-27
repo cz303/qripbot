@@ -1,10 +1,8 @@
 telebot
-re
-string
-random
-sqlite3
-threading
-queue
-io
-time
+py
+pytest
 requests
+six
+wheel
+captcha
+queuelib
