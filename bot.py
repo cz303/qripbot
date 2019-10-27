@@ -6,8 +6,6 @@ from telebot import types
 bot = telebot.TeleBot(Settings.BOT_TOKEN)
 users_data = {}
 db_write_queue = queue.Queue()
-webhook_url = 'Your Webook'
-PORT = int(os.environ.get('PORT','8443'))
 
 yes_no_keyboard = types.ReplyKeyboardMarkup()
 yes_no_keyboard.row(types.KeyboardButton("< Yes >"))
@@ -210,10 +208,6 @@ def do(message):
 		elif message.text == '< No >':
 			users_data[message.from_user.id]['step'] = 6
 			bot.reply_to(message, Settings.ASK_ERC20_MESSAGE, reply_markup=cancel_keyboard)
-if DEV is not True:
-        updater.start_webhook(listen="0.0.0.0",port=PORT)
-        updater.bot.set_webhook(webhook_url)
-    else:
-        updater.start_polling()
+
 threading.Thread(target=db_connector).start()
 bot.polling()
