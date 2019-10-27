@@ -180,8 +180,6 @@ def do(message):
 			bot.reply_to(message, Settings.CONFIRM_ERC20_MESSAGE % message.text, reply_markup=yes_no_keyboard)
 			users_data[message.from_user.id]['step'] = 7
 			users_data[message.from_user.id]['erc20'] = message.text.strip()
-		else:
-			bot.reply_to(message, Settings.WRONG_ERC20_MESSAGE)
 			
 	# Check confirmation -> register
 	elif u_step == 7:
