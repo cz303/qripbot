@@ -166,7 +166,7 @@ def do(message):
 		else:
 			bot.reply_to(message, Settings.WRONG_USERNAME_MESSAGE)
 	
-	# Check confirmation -> ask erc20 address
+# Check confirmation -> ask erc20 address
 	elif u_step == 5:
 		if message.text == '< Yes >':
 			bot.reply_to(message, Settings.ASK_ERC20_MESSAGE, reply_markup=cancel_keyboard)
@@ -174,13 +174,16 @@ def do(message):
 		elif message.text == '< No >':
 			users_data[message.from_user.id]['step'] = 4
 			bot.reply_to(message, Settings.ASK_USERNAME_MESSAGE, reply_markup=cancel_keyboard)
+	
 	# Check erc20 address -> confirm erc20 address
 	elif u_step == 6:
 		if re.match(Settings.ERC20_REGEX, message.text):
 			bot.reply_to(message, Settings.CONFIRM_ERC20_MESSAGE % message.text, reply_markup=yes_no_keyboard)
 			users_data[message.from_user.id]['step'] = 7
 			users_data[message.from_user.id]['erc20'] = message.text.strip()
-			
+		else:
+			bot.reply_to(message, Settings.WRONG_ERC20_MESSAGE)
+
 	# Check confirmation -> register
 	elif u_step == 7:
 		if message.text == '< Yes >':
