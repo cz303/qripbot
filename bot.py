@@ -5,7 +5,7 @@ from telebot import types
 
 bot = telebot.TeleBot(Settings.BOT_TOKEN)
 users_data = {}
-db_write_queue = queue.queue()
+db_write_queue = queue.Queue()
 
 yes_no_keyboard = types.ReplyKeyboardMarkup()
 yes_no_keyboard.row(types.KeyboardButton("< Yes >"))
