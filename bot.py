@@ -1,10 +1,11 @@
-import telebot, Settings, re, string, random, sqlite3, threading, Queue, time, StringIO, requests
+import telebot, Settings, re, string, random, sqlite3, threading, queue, time, requests
+from io import StringIO
 from captcha.image import ImageCaptcha
 from telebot import types
 
 bot = telebot.TeleBot(Settings.BOT_TOKEN)
 users_data = {}
-db_write_queue = Queue.Queue()
+db_write_queue = queue.Queue()
 
 yes_no_keyboard = types.ReplyKeyboardMarkup()
 yes_no_keyboard.row(types.KeyboardButton("< Yes >"))
