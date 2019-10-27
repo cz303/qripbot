@@ -1,5 +1,4 @@
-import telebot, Settings, re, string, random, sqlite3, threading, queue, io, time, requests
-from io import StringIO
+import telebot, Settings, re, string, random, sqlite3, threading, queue, time, StringIO, requests
 from captcha.image import ImageCaptcha
 from telebot import types
 
