@@ -1,4 +1,4 @@
-BOT_TOKEN = "659414060:AAEWNZpJCVULIOoAdEP7oz8ZGoKJFfmW670"
+BOT_TOKEN = "659414060:AAFwq-ZT-IJVkGGS78o4N4NFfw_1BkMIU5Q"
 
 START_MESSAGE = """Qripplex Airdrop and Referrals
 As we are celebrating the launch of the Qripplex project, we have decided to reward our community
