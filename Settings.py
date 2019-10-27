@@ -1,14 +1,16 @@
 BOT_TOKEN = "659414060:AAFwq-ZT-IJVkGGS78o4N4NFfw_1BkMIU5Q"
 
-START_MESSAGE = """Qripplex Airdrop and Referrals
-As we are celebrating the launch of the Qripplex project, we have decided to reward our community
-for their loyalty and their belief with airdrop and referrals..
-Get 2000 PPL (~ $12 ) when you follow the rules + 100 PPL per referral (Unlimited).
-You must complete all tasks to receive bounty.
-Any cheating or manipulation of the system and you will be disqualified.
-The Bounty will end on November 30 2018.
-Join Our <a href='http://t.me/Qripplex_community'>Telegram channel</a> (1000 PPL)
-Follow Us on <a href='http://twitter.com/QRIPPLEX_PPL'>Twitter</a> (1000 PPL)"""
+START_MESSAGE = """<b>Welcome to dSTAR airdrop bot!</b>
+
+Join <a href='https://t.me/dstarlab'>dSTAR telegram channel.</a>
+
+Download <a href='https://dstarlab.com'>dSTAR messenger</a> and you will receive 15 TRX(TRON).
+
+Follow <a href='https://twitter.com/dSTARLab'>dSTAR twitter page</a>, make some like, comment, share and you will receive 5 TRX(TRON).
+
+Additionally, you can receive 5 TRX(TRON) for each invited user!
+
+https://dstarlab.com"""
 
 ADMIN_ID = 677805757
 
