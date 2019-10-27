@@ -2,7 +2,7 @@ asn1crypto==0.24.0
 attrs==19.1.0
 certifi==2019.6.16
 cffi==1.12.3
-chardet==3.0.4
+chardet
 cryptography==2.7
 idna==2.8
 pyasn1==0.4.6
@@ -15,7 +15,7 @@ service-identity==18.1.0
 six==1.12.0
 telebot==0.0.3
 TelegramBotAPI==0.3.2
-urllib3==1.25.3
+urllib3
 flask
 Captcha
 queuelib
