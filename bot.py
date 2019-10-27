@@ -1,4 +1,4 @@
-import telebot, Settings, re, string, random, sqlite3, threading, queue, time, requests
+import telebot, Settings, re, string, random, sqlite3, threading, queue, io, time, requests
 from io import StringIO
 from captcha.image import ImageCaptcha
 from telebot import types
@@ -78,7 +78,7 @@ def do(message):
 	csv = "User ID;Points;E-Mail;Twitter;ERC20;Referer\n" + "\n".join(
 		";".join(str(b) for b in a) for a in users
 	)
-	temp = StringIO.StringIO()
+	temp = StringIO()
 	temp.write(csv)
 	temp.seek(0,0)
 	requests.post("https://api.telegram.org/bot%s/sendDocument" % Settings.BOT_TOKEN, params={
