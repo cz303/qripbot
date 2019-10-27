@@ -1,4 +1,5 @@
-import telebot, Settings, re, string, random, sqlite3, threading, queue, time, StringIO, requests
+import telebot, Settings, re, string, random, sqlite3, threading, queue, io, time, requests
+from io import StringIO
 from captcha.image import ImageCaptcha
 from telebot import types
 
@@ -165,7 +166,7 @@ def do(message):
 		else:
 			bot.reply_to(message, Settings.WRONG_USERNAME_MESSAGE)
 	
-# Check confirmation -> ask erc20 address
+	# Check confirmation -> ask erc20 address
 	elif u_step == 5:
 		if message.text == '< Yes >':
 			bot.reply_to(message, Settings.ASK_ERC20_MESSAGE, reply_markup=cancel_keyboard)
