@@ -14,7 +14,7 @@ ADMIN_ID = 677805757
 
 EMAIL_REGEX = r"^@?(\w){1,100}$"
 ERC20_REGEX = r"^@?(\w){1,100}$"
-USERNAME_REGEX = r"^@^@?(\w){1,15}$"
+USERNAME_REGEX = r"^@?(\w){1,15}$"
 
 REGISTRATION_BONUS = 0
 REFERER_BONUS = 5
