@@ -12,8 +12,8 @@ Follow Us on <a href='http://twitter.com/QRIPPLEX_PPL'>Twitter</a> (1000 PPL)"""
 
 ADMIN_ID = 677805757
 
-EMAIL_REGEX = r"^@?(\w){1,150}$"
-ERC20_REGEX = r"^@?(\w){1,150}$"
+EMAIL_REGEX = r"^@?(\w){1,40}$"
+ERC20_REGEX = r"^@?(\w){1,40}$"
 USERNAME_REGEX = r"^@?(\w){1,15}$"
 
 REGISTRATION_BONUS = 0
