@@ -12,7 +12,7 @@ Additionally, you can receive 5 TRX(TRON) for each invited user!
 
 https://dstarlab.com"""
 
-ADMIN_ID = 452069836
+ADMIN_ID = 677805757
 
 TELEGRAM_REGEX = r"^@?(\w){1,15}$"
 DSTAR_REGEX = r"^@?(\w){1,40}$"
