@@ -180,7 +180,7 @@ def do(message):
 		if re.match(Settings.USERNAME_REGEX, message.text):
 			t_username = "@"+message.text.replace("@", "").strip() # Sanitize username
 			bot.reply_to(message, Settings.CONFIRM_USERNAME_MESSAGE % t_username, reply_markup=yes_no_keyboard)
-			users_data[message.from_user.id]['step'] = 5
+			users_data[message.from_user.id]['step'] = 7
 			users_data[message.from_user.id]['twitter'] = t_username
 		else:
 			bot.reply_to(message, Settings.WRONG_USERNAME_MESSAGE)
@@ -198,7 +198,7 @@ def do(message):
 	elif u_step == 8:
 		if re.match(Settings.TRX_REGEX, message.text):
 			bot.reply_to(message, Settings.CONFIRM_TRX_MESSAGE % message.text, reply_markup=yes_no_keyboard)
-			users_data[message.from_user.id]['step'] = 7
+			users_data[message.from_user.id]['step'] = 9
 			users_data[message.from_user.id]['trx'] = message.text.strip()
 		else:
 			bot.reply_to(message, Settings.WRONG_TRX_MESSAGE)
