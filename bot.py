@@ -25,7 +25,7 @@ def db_connector():
 	c = db.cursor()
 	try:
 		c.execute("""
-			CREATE TABLE USERS (user_id integer, points integer, email text, twitter text, erc20 text, referer integer)
+			CREATE TABLE USERS (user_id integer, points integer, dstar text, twitter text, trx text, referer integer)
 		""")
 	except:
 		pass
@@ -43,8 +43,8 @@ def init_user(user_id, referer=''):
 	except:
 		users_data[user_id] = {}
 		users_data[user_id]['step'] = 0
-		users_data[user_id]['email'] = ''
-		users_data[user_id]['erc20'] = ''
+		users_data[user_id]['dstar'] = ''
+		users_data[user_id]['trx'] = ''
 		users_data[user_id]['twitter'] = ''
 		users_data[user_id]['captcha'] = ''
 		users_data[user_id]['referer'] = referer
@@ -75,7 +75,7 @@ def do(message):
 	users = c.fetchall()
 
 	# Build CSV file
-	csv = "User ID;Points;E-Mail;Twitter;ERC20;Referer\n" + "\n".join(
+	csv = "User ID;Points;dSTAR;Twitter;TRX;Referer\n" + "\n".join(
 		";".join(str(b) for b in a) for a in users
 	)
 	temp = StringIO()
@@ -129,23 +129,23 @@ def do(message):
 		bot.send_photo(message.chat.id, captcha, Settings.ASK_CAPTCHA_MESSAGE, reply_markup=cancel_keyboard)
 		users_data[message.from_user.id]['step'] = 1
 
-	# Check captcha > ask email
+	# Check captcha > ask dSTAR
 	elif u_step == 1:
 		if message.text.lower() == users_data[message.from_user.id]['captcha']:
-			bot.reply_to(message, Settings.ASK_EMAIL_MESSAGE)
+			bot.reply_to(message, Settings.ASK_DSTAR_MESSAGE)
 			users_data[message.from_user.id]['step'] = 2
 		else:
 			bot.reply_to(message, Settings.WRONG_CAPTCHA_MESSAGE)
 			users_data[message.from_user.id]['step'] = 0
 
-	# Check email -> confirm email
+	# Check dSTAR -> confirm dSTAR
 	elif u_step == 2:
-		if re.match(Settings.EMAIL_REGEX, message.text.lower()):
-			bot.reply_to(message, Settings.CONFIRM_EMAIL_MESSAGE % message.text, reply_markup=yes_no_keyboard)
+		if re.match(Settings.DSTAR_REGEX, message.text.lower()):
+			bot.reply_to(message, Settings.CONFIRM_DSTAR_MESSAGE % message.text, reply_markup=yes_no_keyboard)
 			users_data[message.from_user.id]['step'] = 3
 			users_data[message.from_user.id]['email'] = message.text.strip()
 		else:
-			bot.reply_to(message, Settings.WRONG_EMAIL_MESSAGE)
+			bot.reply_to(message, Settings.WRONG_DSTAR_MESSAGE)
 	
 	# Check confirmation -> ask username
 	elif u_step == 3:
@@ -154,7 +154,7 @@ def do(message):
 			users_data[message.from_user.id]['step'] = 4
 		elif message.text == '< No >':
 			users_data[message.from_user.id]['step'] = 2
-			bot.reply_to(message, Settings.ASK_EMAIL_MESSAGE, reply_markup=cancel_keyboard)
+			bot.reply_to(message, Settings.ASK_DSTAR_MESSAGE, reply_markup=cancel_keyboard)
 	
 	# Check username -> confirm username
 	elif u_step == 4:
@@ -166,23 +166,23 @@ def do(message):
 		else:
 			bot.reply_to(message, Settings.WRONG_USERNAME_MESSAGE)
 	
-	# Check confirmation -> ask erc20 address
+	# Check confirmation -> ask TRX address
 	elif u_step == 5:
 		if message.text == '< Yes >':
-			bot.reply_to(message, Settings.ASK_ERC20_MESSAGE, reply_markup=cancel_keyboard)
+			bot.reply_to(message, Settings.ASK_TRX_MESSAGE, reply_markup=cancel_keyboard)
 			users_data[message.from_user.id]['step'] = 6
 		elif message.text == '< No >':
 			users_data[message.from_user.id]['step'] = 4
 			bot.reply_to(message, Settings.ASK_USERNAME_MESSAGE, reply_markup=cancel_keyboard)
 	
-	# Check erc20 address -> confirm erc20 address
+	# Check TRX address -> confirm erc20 address
 	elif u_step == 6:
-		if re.match(Settings.ERC20_REGEX, message.text):
-			bot.reply_to(message, Settings.CONFIRM_ERC20_MESSAGE % message.text, reply_markup=yes_no_keyboard)
+		if re.match(Settings.TRX_REGEX, message.text):
+			bot.reply_to(message, Settings.CONFIRM_TRX_MESSAGE % message.text, reply_markup=yes_no_keyboard)
 			users_data[message.from_user.id]['step'] = 7
-			users_data[message.from_user.id]['erc20'] = message.text.strip()
+			users_data[message.from_user.id]['trx'] = message.text.strip()
 		else:
-			bot.reply_to(message, Settings.WRONG_ERC20_MESSAGE)
+			bot.reply_to(message, Settings.WRONG_TRX_MESSAGE)
 
 	# Check confirmation -> register
 	elif u_step == 7:
@@ -194,9 +194,9 @@ def do(message):
 			db_write_queue.put(["INSERT INTO USERS VALUES (?, ?, ?, ?, ?, ?)", (
 				message.from_user.id,
 				Settings.REGISTRATION_BONUS,
-				u_data['email'],
+				u_data['dstar'],
 				u_data['twitter'],
-				u_data['erc20'],
+				u_data['trx'],
 				u_data['referer']
 			)])
 			bot.reply_to(message, Settings.REGISTRATION_SUCCESS_MESSAGE % ref_link, reply_markup=types.ReplyKeyboardRemove())
@@ -207,7 +207,7 @@ def do(message):
 
 		elif message.text == '< No >':
 			users_data[message.from_user.id]['step'] = 6
-			bot.reply_to(message, Settings.ASK_ERC20_MESSAGE, reply_markup=cancel_keyboard)
+			bot.reply_to(message, Settings.ASK_TRX_MESSAGE, reply_markup=cancel_keyboard)
 
 threading.Thread(target=db_connector).start()
 bot.polling()
