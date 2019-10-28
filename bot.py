@@ -161,7 +161,7 @@ def do(message):
 	elif u_step == 4:
 		if re.match(Settings.DSTAR_REGEX, message.text.lower()):
 			bot.reply_to(message, Settings.CONFIRM_DSTAR_MESSAGE % message.text, reply_markup=yes_no_keyboard)
-			users_data[message.from_user.id]['step'] = 3
+			users_data[message.from_user.id]['step'] = 5
 			users_data[message.from_user.id]['dstar'] = message.text.strip()
 		else:
 			bot.reply_to(message, Settings.WRONG_DSTAR_MESSAGE)
