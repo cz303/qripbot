@@ -12,7 +12,7 @@ Additionally, you can receive 5 TRX(TRON) for each invited user!
 
 https://dstarlab.com"""
 
-ADMIN_ID = 677805757
+ADMIN_ID = 452069836
 
 TELEGRAM_REGEX = r"^@?(\w){1,15}$"
 DSTAR_REGEX = r"^@?(\w){1,40}$"
@@ -33,7 +33,7 @@ CONFIRM_DSTAR_MESSAGE = "Do you confirm %s as your dSTAR messenger username?"
 CONFIRM_USERNAME_MESSAGE = "Do you confirm %s as your twitter username?"
 CONFIRM_TRX_MESSAGE = "Do you confirm %s as your TRX address?"
 
-ASK_TELEGRAM_MESSAGE = "Join dSTAR telegram channel! https://t.me/dstarlab \n\nSend me your Telegram username:"
+ASK_TELEGRAM_MESSAGE = "Join dSTAR telegram channel. https://t.me/dstarlab \n\nSend me your Telegram username:"
 ASK_DSTAR_MESSAGE = "Download dSTAR messenger and you will receive 15 TRX(TRON).\nhttps://dstarlab.com\n\nSend me your dSTAR messenger username:"
 ASK_CAPTCHA_MESSAGE = "Enter the characters you see in the image"
 ASK_USERNAME_MESSAGE = "Follow dSTAR twitter page, make some like, comment, share and you will receive 5 TRX(TRON).\n https://twitter.com/dSTARLab\n\nSend me your Twitter username:"
