@@ -143,7 +143,7 @@ def do(message):
 	elif u_step == 2:
 		if re.match(Settings.TELEGRAM_REGEX, message.text.lower()):
 			bot.reply_to(message, Settings.CONFIRM_TELEGRAM_MESSAGE % message.text, reply_markup=yes_no_keyboard)
-			users_data[message.from_user.id]['step'] = 2
+			users_data[message.from_user.id]['step'] = 3
 			users_data[message.from_user.id]['telegram'] = message.text.strip()
 		else:
 			bot.reply_to(message, Settings.WRONG_TELEGRAM_MESSAGE)
