@@ -23,6 +23,7 @@ REGISTRATION_BONUS = 0
 REFERER_BONUS = 5
 
 WRONG_CAPTCHA_MESSAGE = "Wrong captcha."
+WRONG_TELGRAM_MESSAGE = "Wrong Telegram format."
 WRONG_DSTAR_MESSAGE = "Wrong dSTAR format."
 WRONG_USERNAME_MESSAGE = "Wrong twitter username format."
 WRONG_TRX_MESSAGE = "Wrong TRX format."
