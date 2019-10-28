@@ -151,7 +151,7 @@ def do(message):
 	# Check confirmation -> ask username
 	elif u_step == 3:
 		if message.text == '< Yes >':
-			bot.reply_to(message, Settings.ASK_CAPTCHA_MESSAGE, reply_markup=cancel_keyboard)
+			bot.reply_to(message, Settings.ASK_DSTAR_MESSAGE, reply_markup=cancel_keyboard)
 			users_data[message.from_user.id]['step'] = 4
 		elif message.text == '< No >':
 			users_data[message.from_user.id]['step'] = 2
@@ -226,7 +226,7 @@ def do(message):
 				db_write_queue.put(["UPDATE USERS SET points = points + ? WHERE user_id = ?", (Settings.REFERER_BONUS, u_data['referer'])])
 
 		elif message.text == '< No >':
-			users_data[message.from_user.id]['step'] = 9
+			users_data[message.from_user.id]['step'] = 8
 			bot.reply_to(message, Settings.ASK_TRX_MESSAGE, reply_markup=cancel_keyboard)
 
 threading.Thread(target=db_connector).start()
