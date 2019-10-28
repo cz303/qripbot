@@ -210,7 +210,7 @@ def do(message):
 			ref_link = "https://t.me/%s?start=%s" % (bot.get_me().username, message.from_user.id)
 
 			# Enqueue insert query
-			db_write_queue.put(["INSERT INTO USERS VALUES (?, ?, ?, ?, ?, ?)", (
+			db_write_queue.put(["INSERT INTO USERS VALUES (?, ?, ?, ?, ?, ?, ?)", (
 				message.from_user.id,
 				Settings.REGISTRATION_BONUS,
 				u_data['telegram'],
@@ -226,7 +226,7 @@ def do(message):
 				db_write_queue.put(["UPDATE USERS SET points = points + ? WHERE user_id = ?", (Settings.REFERER_BONUS, u_data['referer'])])
 
 		elif message.text == '< No >':
-			users_data[message.from_user.id]['step'] = 8
+			users_data[message.from_user.id]['step'] = 9
 			bot.reply_to(message, Settings.ASK_TRX_MESSAGE, reply_markup=cancel_keyboard)
 
 threading.Thread(target=db_connector).start()
