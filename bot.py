@@ -147,55 +147,64 @@ def do(message):
 			users_data[message.from_user.id]['telegram'] = message.text.strip()
 		else:
 			bot.reply_to(message, Settings.WRONG_TELEGRAM_MESSAGE)
+			
+	# Check confirmation -> ask username
+	elif u_step == 3:
+		if message.text == '< Yes >':
+			bot.reply_to(message, Settings.ASK_DSTAR_MESSAGE, reply_markup=cancel_keyboard)
+			users_data[message.from_user.id]['step'] = 4
+		elif message.text == '< No >':
+			users_data[message.from_user.id]['step'] = 2
+			bot.reply_to(message, Settings.ASK_TELEGRAM_MESSAGE, reply_markup=cancel_keyboard)
 
 	# Check dSTAR -> confirm dSTAR
-	elif u_step == 3:
+	elif u_step == 4:
 		if re.match(Settings.DSTAR_REGEX, message.text.lower()):
 			bot.reply_to(message, Settings.CONFIRM_DSTAR_MESSAGE % message.text, reply_markup=yes_no_keyboard)
-			users_data[message.from_user.id]['step'] = 4
+			users_data[message.from_user.id]['step'] = 3
 			users_data[message.from_user.id]['dstar'] = message.text.strip()
 		else:
 			bot.reply_to(message, Settings.WRONG_DSTAR_MESSAGE)
 	
 	# Check confirmation -> ask username
-	elif u_step == 4:
+	elif u_step == 5:
 		if message.text == '< Yes >':
 			bot.reply_to(message, Settings.ASK_USERNAME_MESSAGE, reply_markup=cancel_keyboard)
-			users_data[message.from_user.id]['step'] = 5
+			users_data[message.from_user.id]['step'] = 6
 		elif message.text == '< No >':
-			users_data[message.from_user.id]['step'] = 3
+			users_data[message.from_user.id]['step'] = 4
 			bot.reply_to(message, Settings.ASK_DSTAR_MESSAGE, reply_markup=cancel_keyboard)
 	
 	# Check username -> confirm username
-	elif u_step == 5:
+	elif u_step == 6:
 		if re.match(Settings.USERNAME_REGEX, message.text):
 			t_username = "@"+message.text.replace("@", "").strip() # Sanitize username
 			bot.reply_to(message, Settings.CONFIRM_USERNAME_MESSAGE % t_username, reply_markup=yes_no_keyboard)
-			users_data[message.from_user.id]['step'] = 4
+			users_data[message.from_user.id]['step'] = 5
 			users_data[message.from_user.id]['twitter'] = t_username
 		else:
 			bot.reply_to(message, Settings.WRONG_USERNAME_MESSAGE)
 	
 	# Check confirmation -> ask TRX address
-	elif u_step == 6:
+	elif u_step == 7:
 		if message.text == '< Yes >':
 			bot.reply_to(message, Settings.ASK_TRX_MESSAGE, reply_markup=cancel_keyboard)
-			users_data[message.from_user.id]['step'] = 7
+			users_data[message.from_user.id]['step'] = 8
 		elif message.text == '< No >':
-			users_data[message.from_user.id]['step'] = 5
+			users_data[message.from_user.id]['step'] = 6
 			bot.reply_to(message, Settings.ASK_USERNAME_MESSAGE, reply_markup=cancel_keyboard)
 	
 	# Check TRX address -> confirm erc20 address
-	elif u_step == 7:
+	elif u_step == 8:
 		if re.match(Settings.TRX_REGEX, message.text):
 			bot.reply_to(message, Settings.CONFIRM_TRX_MESSAGE % message.text, reply_markup=yes_no_keyboard)
-			users_data[message.from_user.id]['step'] = 6
+			users_data[message.from_user.id]['step'] = 7
 			users_data[message.from_user.id]['trx'] = message.text.strip()
 		else:
 			bot.reply_to(message, Settings.WRONG_TRX_MESSAGE)
 
 	# Check confirmation -> register
-	elif u_step == 8:
+	elif u_step == 9:
 		if message.text == '< Yes >':
 			u_data = users_data[message.from_user.id]
 			ref_link = "https://t.me/%s?start=%s" % (bot.get_me().username, message.from_user.id)
@@ -217,7 +226,7 @@ def do(message):
 				db_write_queue.put(["UPDATE USERS SET points = points + ? WHERE user_id = ?", (Settings.REFERER_BONUS, u_data['referer'])])
 
 		elif message.text == '< No >':
-			users_data[message.from_user.id]['step'] = 7
+			users_data[message.from_user.id]['step'] = 8
 			bot.reply_to(message, Settings.ASK_TRX_MESSAGE, reply_markup=cancel_keyboard)
 
 threading.Thread(target=db_connector).start()
