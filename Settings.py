@@ -30,7 +30,7 @@ CONFIRM_DSTAR_MESSAGE = "Do you confirm %s as your dSTAR messenger username?"
 CONFIRM_USERNAME_MESSAGE = "Do you confirm %s as your twitter username?"
 CONFIRM_TRX_MESSAGE = "Do you confirm %s as your TRX address?"
 
-ASK_DSTAR_MESSAGE = "Download dSTAR messenger and you will receive 15 TRX(TRON).\nhttps://dstarlab.com\n\n Send me your dSTAR messenger username:"
+ASK_DSTAR_MESSAGE = "Download dSTAR messenger and you will receive 15 TRX(TRON).\nhttps://dstarlab.com\n\nSend me your dSTAR messenger username:"
 ASK_CAPTCHA_MESSAGE = "Enter the characters you see in the image"
 ASK_USERNAME_MESSAGE = "Follow dSTAR twitter page, make some like, comment, share and you will receive 5 TRX(TRON).\n https://twitter.com/dSTARLab\n\nSend me your Twitter username:"
 ASK_TRX_MESSAGE = "Just one more step! Send me your TRX wallet address"
