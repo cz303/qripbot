@@ -2,9 +2,9 @@ BOT_TOKEN = "834239407:AAHHs1oIMI2_75mDkVruQdZpNJ2zkiTJrjk"
 
 START_MESSAGE = """<b>Welcome to dSTAR airdrop bot!</b>
 
-Join <a href='https://t.me/dstarlab'>dSTAR telegram</a> channel.
-
 Download <a href='https://dstarlab.com'>dSTAR messenger</a> and you will receive 15 TRX(TRON).
+
+Join <a href='https://t.me/dstarlab'>dSTAR telegram</a> channel.
 
 Follow <a href='https://twitter.com/dSTARLab'>dSTAR twitter</a> page, make some like, comment, share and you will receive 5 TRX(TRON).
 
