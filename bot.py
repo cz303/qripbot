@@ -134,7 +134,7 @@ def do(message):
 	elif u_step == 1:
 		if message.text.lower() == users_data[message.from_user.id]['captcha']:
 			bot.reply_to(message, Settings.ASK_TELEGRAM_MESSAGE)
-			users_data[message.from_user.id]['step'] = 2
+			users_data[message.from_user.id]['telegram'] = 2
 		else:
 			bot.reply_to(message, Settings.WRONG_CAPTCHA_MESSAGE)
 			users_data[message.from_user.id]['step'] = 0
