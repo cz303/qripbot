@@ -148,7 +148,7 @@ def do(message):
 		else:
 			bot.reply_to(message, Settings.WRONG_TELEGRAM_MESSAGE)
 			
-	# Check confirmation -> ask username
+	# confirm telegram -> ask dstar
 	elif u_step == 3:
 		if message.text == '< Yes >':
 			bot.reply_to(message, Settings.ASK_DSTAR_MESSAGE, reply_markup=cancel_keyboard)
@@ -157,7 +157,7 @@ def do(message):
 			users_data[message.from_user.id]['step'] = 2
 			bot.reply_to(message, Settings.ASK_TELEGRAM_MESSAGE, reply_markup=cancel_keyboard)
 
-	# Check dSTAR -> confirm dSTAR
+	# ask dSTAR -> confirm dSTAR
 	elif u_step == 4:
 		if re.match(Settings.DSTAR_REGEX, message.text.lower()):
 			bot.reply_to(message, Settings.CONFIRM_DSTAR_MESSAGE % message.text, reply_markup=yes_no_keyboard)
