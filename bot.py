@@ -231,4 +231,4 @@ def do(message):
 			bot.reply_to(message, Settings.ASK_TRX_MESSAGE, reply_markup=cancel_keyboard)
 
 threading.Thread(target=db_connector).start()
-bot.polling()
+bot.polling(none_stop=True, interval=0)
