@@ -9,7 +9,7 @@ Join <a href='https://t.me/dstarlab'>dSTAR telegram</a> channel
 
 You will receive 15 TRX(TRON)
 
-Follow <a href='https://twitter.com/dSTARLab'>dSTAR twitter</a> page, make some like, comment, share 
+Follow <a href='https://twitter.com/dSTARLab'>dSTAR twitter</a> page, make some like, share 
 You will receive 5 TRX(TRON)
 
 Additionally, you can receive 5 TRX(TRON) for each invited user!
@@ -40,7 +40,7 @@ CONFIRM_TRX_MESSAGE = "Do you confirm %s as your TRX address?"
 ASK_TELEGRAM_MESSAGE = "Join dSTAR telegram channel. https://t.me/dstarlab \n\nSend me your Telegram username:"
 ASK_DSTAR_MESSAGE = "Download dSTAR messenger and you will receive 15 TRX(TRON).\nhttps://dstarlab.com\nSend your telegram username to 'romantrata'!\n\nSend me your dSTAR messenger username:"
 ASK_CAPTCHA_MESSAGE = "Enter the characters you see in the image"
-ASK_USERNAME_MESSAGE = "Follow dSTAR twitter page, make some like, comment, share and you will receive 5 TRX(TRON).\n https://twitter.com/dSTARLab\n\nSend me your Twitter username:"
+ASK_USERNAME_MESSAGE = "Follow dSTAR twitter page, make some like, share and you will receive 5 TRX(TRON).\n https://twitter.com/dSTARLab\n\nSend me your Twitter username:"
 ASK_TRX_MESSAGE = "Just one more step! Send me your TRX wallet address"
 
 REGISTRATION_SUCCESS_MESSAGE = "Congratulations! You're registered!\nIncrease your balance by sharing this link: %s"
