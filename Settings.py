@@ -1,4 +1,4 @@
-BOT_TOKEN = "834239407:AAHHs1oIMI2_75mDkVruQdZpNJ2zkiTJrjk"
+BOT_TOKEN = ""
 
 START_MESSAGE = """<b>Welcome to dSTAR airdrop bot!</b>
 
